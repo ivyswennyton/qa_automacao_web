@@ -1,0 +1,14 @@
+# Scripts para execução
+default: -p deaf -p chrome -p env_dev -p dev -p html -p json
+chrome: -p deaf -p chrome
+firefox:  -p deaf -p firefox
+
+chrome: BROWSER=chrome
+firefox: BROWSER=firefox
+pretty: --format pretty
+ci: --format progress
+deaf: --no-source --color --format pretty
+dev: ENV_TYPE=dev
+env_dev: ENV_PREFIX=dev
+html: --format html --out=report/report.html
+json: --format json --out=report/report.json
