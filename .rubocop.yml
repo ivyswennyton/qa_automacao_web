@@ -1,0 +1,17 @@
+AllCops:
+  NewCops: disable
+
+Style/FrozenStringLiteralComment: 
+  Enabled: false
+
+Naming/AsciiIdentifiers:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false

@@ -1,4 +1,4 @@
-class UnitsPage 
+class UnitsPage
   include Capybara::DSL
 
   def open_facilities_filter
@@ -14,7 +14,7 @@ class UnitsPage
   end
 
   def name_first_unit
-    find(:xpath, "(//h1)[1]").text
+    find(:xpath, '(//h1)[1]').text
   end
 
   def view_details

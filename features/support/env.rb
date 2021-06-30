@@ -7,17 +7,18 @@ require 'pry'
 require 'yaml'
 require_relative '../../features/support/helpers'
 
-include Helpers 
+include Helpers
 
-CONFIG = YAML.load_file(File.join(Dir.pwd, "features/support/config/environments/#{ENV["ENV_TYPE"]}.yml"))
+CONFIG = YAML.load_file(File.join(Dir.pwd, "features/support/config/environments/#{ENV['ENV_TYPE']}.yml"))
 
-DATA = if ENV['DEV']
-  YAML.load_file('features/support/config/environments/dev.yml')
-elsif ENV['HML']
-  YAML.load_file('features/support/config/environments/hml.yml')
-else
-  YAML.load_file('features/support/config/environments/dev.yml')
-end
+DATA =
+  if ENV['DEV']
+    YAML.load_file('features/support/config/environments/dev.yml')
+  elsif ENV['HML']
+    YAML.load_file('features/support/config/environments/hml.yml')
+  else
+    YAML.load_file('features/support/config/environments/dev.yml')
+  end
 
 @browser = ENV['BROWSER']
 
@@ -48,40 +49,3 @@ Capybara.configure do |config|
   config.app_host = CONFIG['url']
   config.default_max_wait_time = 20
 end
-
-
-
-
-
-
-
-
-
-#  if ENV['chrome']
-#    Capybara.default_driver = :chrome
-#    Capybara.register_driver :chrome do |app|
-#      Capybara::Selenium::Driver.new(app, browser: :chrome)
-#    end
-#  elsif ENV['firefox']
-#    Capybara.default_driver = :firefox
-#    Capybara.register_driver :firefox do |app|
-#      Capybara::Selenium::Driver.new(app, browser: :firefox)
-#    end
-#  elsif ENV['ie']
-#    Capybara.default_driver = :ie
-#    Capybara.register_driver :ie do |app|
-#      Capybara::Selenium::Driver.new(app, browser: :internet_explorer)
-#    end
-#  elsif ENV['headless_debug']
-#    Capybara.default_driver = :poltergeist_debug
-#    Capybara.register_driver :poltergeist_debug do |app|
-#      Capybara::Poltergeist::Driver.new(app, inspector: true)
-#    end
-#    Capybara.javascript_driver = :poltergeist_debug
-#  elsif ENV['headless']
-#    Capybara.javascript_driver = :poltergeist
-#    Capybara.default_driver = :poltergeist
-#  else
-#    Capybara.default_driver = :selenium
-#  end
- 
